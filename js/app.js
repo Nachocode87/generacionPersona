@@ -97,15 +97,18 @@ class Lista extends Persona{
     <td>${obj.peso}</td>
     <td>${obj.altura}</td>
     <td>${obj.anio}</td>
+    <td id='gen'>${obj.generacion}</td>
+    <td>${obj.esMayorEdad}</td>
     `
     personaTable.appendChild(filaNueva)
     
 }
 
-    generacion() {
-    console.log(this.anio)
+    generacion(obj) {
+    
     if (this.anio < 1949) {
-        console.log('silent generation, austeridad');
+        const gen = document.getElementById('gen');
+        gen.textContent = 'pruebaaaaa'
         
     } else if (this.anio < 1969) {
         console.log('baby boom, ambicion');         
@@ -122,7 +125,6 @@ class Lista extends Persona{
     }
     
     esMayorEdad() {
-        console.log(this.edad)
         if (this.edad < 18) {
             console.log('es menor de edad');
             
@@ -154,7 +156,7 @@ btnCrearPersona.addEventListener('click', crearPersona)
 let btnMayor = document.getElementById('btnMayor');
 btnMayor.addEventListener('click', storage.esMayorEdad)
 let btnGeneracion = document.getElementById('btnGeneracion');
-btnGeneracion.addEventListener('click', storage.generacion)
+
 
 function crearPersona(){
     const nombreInput = document.getElementById('nombreInput').value;
